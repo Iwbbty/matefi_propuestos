@@ -1,0 +1,109 @@
+# Cálculos de descuento y tasas en Python
+
+# 1. Descuento compuesto verdadero
+S_1 = 5000
+i_1 = 0.08 / 4  # Tasa nominal del 8% capitalizable trimestralmente
+t_1 = 4 * 5     # 5 años
+D_1 = S_1 * (1 - (1 + i_1)**-t_1)
+
+# 2. Descuento racional compuesto
+S_2 = 15000
+i_2 = 0.015    # Tasa activa vigente del 1.5% mensual
+t_2 = 42 / 30  # 42 días
+D_2 = S_2 * (1 - (1 + i_2)**-t_2)
+
+# 3. Descuento compuesto verdadero
+S_3 = 2500
+i_3 = 0.12 / 2  # Tasa nominal del 12% capitalizable semestralmente
+t_3 = 2 * 10    # 10 años
+D_3 = S_3 * (1 - (1 + i_3)**-t_3)
+
+# 4. Tasa anticipada efectiva mensual de descuento bancario
+S_4 = 22306.08
+D_4 = 500
+t_4 = 1.5  # 45 días equivalentes a 1.5 meses
+i_4 = D_4 / (S_4 * t_4)
+
+# 5. Descuento bancario compuesto
+S_5 = 7000
+d_5 = 0.12 / 4  # 12% anual capitalizable trimestralmente
+n_5 = 110 / 90  # 110 días
+D_5 = S_5 * (1 - (1 / (1 + d_5)**n_5))
+
+# 6. Descuento bancario compuesto
+S_6 = 2500
+d_6 = 0.18 / 12   # Tasa del 18% anual capitalizable mensualmente
+n_6 = 37 / 30     # 37 días
+D_6 = S_6 * (1 - (1 / (1 + d_6)**n_6))
+
+# 7. Tasa efectiva recibida en un depósito bancario
+j_7 = 0.30   # Tasa nominal del 30%
+m_7 = 2      # Semestralmente
+i_efectiva_7 = (1 + j_7 / m_7)**m_7 - 1
+
+# 8. Tasa efectiva de un préstamo bancario
+j_8 = 0.16  # Tasa nominal del 16%
+m_8 = 4     # Trimestralmente
+i_efectiva_8 = (1 + j_8 / m_8)**m_8 - 1
+
+# 9. Tasa efectiva para 128 días
+j_9 = 0.18   # TNA del 18%
+n_9 = 128
+m_9 = 360   # Capitalización diaria
+i_efectiva_9 = (1 + j_9 / m_9)**n_9 - 1
+
+# 10. TET de una TNA con capitalización diaria
+j_10 = 0.24  # TNA del 24%
+m_10 = 360   # Capitalización diaria
+n_10 = 360   # Para un año
+i_efectiva_total_10 = (1 + j_10 / m_10)**n_10 - 1
+
+# 11. TEA a partir de una TNM
+j_11 = 0.02  # TNM del 2%
+m_11 = 4     # Trimestral
+n_11 = 1     # Un periodo
+TEA_11 = (1 + j_11 / m_11)**(m_11 * n_11) - 1
+
+# 12. TET para capitalización de 29 y 26 días
+j_12 = 0.02
+m_12_29 = 360 / 29  # Capitalización cada 29 días
+n_12_29 = 360 / 29
+TET_29 = (1 + j_12 / m_12_29)**n_12_29 - 1
+
+m_12_26 = 360 / 26  # Capitalización cada 26 días
+n_12_26 = 360 / 26
+TET_26 = (1 + j_12 / m_12_26)**n_12_26 - 1
+
+# 13. TEA a partir de una TNA del 17% con capitalización mensual
+j_13 = 0.17  # TNA del 17%
+TEA_13 = (1 + j_13 / 12)**12 - 1
+
+# 14. TNA equivalente a una TEA de 12.5% con capitalización trimestral
+i_14 = 0.125  # TEA del 12.5%
+TNA_14 = 4 * ((1 + i_14)**(1 / 4) - 1)
+
+# 15. TEQ a partir de una TEM del 4%
+TEM = 0.04
+TEQ = (1 + TEM)**(1 / 6) - 1
+
+# Resultados
+resultados = {
+    "Descuento compuesto verdadero 1": D_1,
+    "Descuento racional compuesto": D_2,
+    "Descuento compuesto verdadero 2": D_3,
+    "Tasa anticipada efectiva mensual": i_4,
+    "Descuento bancario compuesto 1": D_5,
+    "Descuento bancario compuesto 2": D_6,
+    "Tasa efectiva depósito bancario": i_efectiva_7,
+    "Tasa efectiva préstamo bancario": i_efectiva_8,
+    "Tasa efectiva 128 días": i_efectiva_9,
+    "TET capitalización diaria": i_efectiva_total_10,
+    "TEA a partir de TNM": TEA_11,
+    "TET 29 días": TET_29,
+    "TET 26 días": TET_26,
+    "TEA a partir de TNA": TEA_13,
+    "TNA equivalente a TEA": TNA_14,
+    "TEQ": TEQ
+}
+
+resultados
